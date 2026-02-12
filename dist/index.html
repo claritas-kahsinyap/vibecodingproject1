@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Charges Analysis Dashboard</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+
+    <!-- Libraries -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script type="module" crossorigin src="/assets/index-6yeMOz6i.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-B7zJjxbq.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>Medical Charges Analytics</h1>
+                <p>Interactive analysis of insurance data identifying key cost drivers</p>
+            </div>
+            <div class="controls">
+                <button id="refresh-btn" class="btn-primary">
+                    <span class="icon">↻</span> Refresh Data
+                </button>
+            </div>
+        </header>
+
+        <!-- Key Metrics Cards -->
+        <div class="metrics-grid">
+            <div class="metric-card enter-animation">
+                <h3>Total Patients</h3>
+                <div class="metric-value" id="total-patients">0</div>
+                <div class="metric-label">Records Analyzed</div>
+            </div>
+            <div class="metric-card enter-animation">
+                <h3>Average Charge</h3>
+                <div class="metric-value" id="avg-charge">$0</div>
+                <div class="metric-label">Per Patient</div>
+            </div>
+            <div class="metric-card enter-animation">
+                <h3>Average BMI</h3>
+                <div class="metric-value" id="avg-bmi">0</div>
+                <div class="metric-label">Body Mass Index</div>
+            </div>
+            <div class="metric-card enter-animation">
+                <h3>Smokers</h3>
+                <div class="metric-value" id="smoker-percent">0%</div>
+                <div class="metric-label">Of Total Population</div>
+            </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="charts-grid">
+            <!-- Main Chart: BMI vs Charges -->
+            <div class="chart-card main-chart enter-animation" style="grid-column: span 2;">
+                <div class="card-header">
+                    <h2>Cost Drivers: BMI vs. Charges</h2>
+                    <div class="legend" id="scatter-legend"></div>
+                </div>
+                <div id="scatter-plot" class="chart-container"></div>
+            </div>
+
+            <!-- Secondary Chart: Region Distribution -->
+            <div class="chart-card enter-animation">
+                <div class="card-header">
+                    <h2>Regional Cost Distribution</h2>
+                </div>
+                <div id="region-chart" class="chart-container"></div>
+            </div>
+
+            <!-- Tertiary Chart: Age Impact -->
+            <div class="chart-card enter-animation">
+                <div class="card-header">
+                    <h2>Age Impact on Charges</h2>
+                </div>
+                <div id="age-chart" class="chart-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+</body>
+
+</html>
